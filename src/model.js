@@ -1,4 +1,7 @@
 
+
+
+
 import {Sequelize,DataTypes} from "sequelize";
 
 
@@ -12,26 +15,32 @@ const sequelize = new Sequelize(
     }
 );
 
-// const User = sequelize.define("users", {
-//    id: {
-//       type: DataTypes.NUMBER,
-//       autoIncrement: true,
-//       primaryKey: true,
-//       allowNull: false
-//    },
-//    name: {
-//       type: DataTypes.STRING,
-//       allowNull: false
-//    }
-// });
+const User = sequelize.define("users", {
+   id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false
+   },
+   name: {
+      type: DataTypes.STRING,
+      allowNull: false
+   },
+   age:{
+      type: DataTypes.STRING
+   },
+   birthDate:{
+      type: DataTypes.DATEONLY
+   }
+});
 
 
 const Patient = sequelize.define("patients", {
    id: {
       type: Sequelize.INTEGER,
-      allowNull:false,
       primaryKey:true,
-      autoIncrement:true
+      autoIncrement:true,
+      allowNull:false
 
    },
    name: {
@@ -46,22 +55,21 @@ const Patient = sequelize.define("patients", {
    }
 });
 
-const Book = sequelize.define("book",{
-   title:{
-       type:Sequelize.STRING,
-       allowNull:false
-   },
-   author:{
-       type:Sequelize.STRING,
-       allowNull:false
-   },
-   release_date:{
-       type:Sequelize.DATEONLY,
-   },
-   subject:{
-       type:Sequelize.INTEGER,
-   }
-});
+
+
+
+
+export {sequelize,User,Patient}
+
+
+
+
+
+
+
+
+
+
 
 
 // {force:true}
@@ -87,26 +95,50 @@ const Book = sequelize.define("book",{
 
 // })
 
+// sequelize.authenticate().then(() => {
+//    console.log('Connection has been established successfully.');
+// }).catch((error) => {
+//    console.error('Unable to connect to the database: ', error);
+// });
 
 
-
-sequelize.sync().then(()=>{
-   console.log("database berhasil dibuat");
-})
-
-
-
-
-
-
-
-
+// sequelize.sync().then(()=>{
+//    console.log("database berhasil dibuat");
+// })
 
 
 
 
-sequelize.authenticate().then(() => {
-   console.log('Connection has been established successfully.');
-}).catch((error) => {
-   console.error('Unable to connect to the database: ', error);
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const Book = sequelize.define("book",{
+//    title:{
+//        type:Sequelize.STRING,
+//        allowNull:false
+//    },
+//    author:{
+//        type:Sequelize.STRING,
+//        allowNull:false
+//    },
+//    release_date:{
+//        type:Sequelize.DATEONLY,
+//    },
+//    subject:{
+//        type:Sequelize.INTEGER,
+//    }
+// });
